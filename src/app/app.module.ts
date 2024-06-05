@@ -7,12 +7,16 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { CharacterListPageComponent } from './pages/character-list-page/character-list-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CharacterDetailComponent } from './components/character-detail/character-detail.component';
+import { CharacterDetailPageComponent } from './pages/character-detail-page/character-detail-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterListComponent,
-    CharacterListPageComponent
+    CharacterListPageComponent,
+    CharacterDetailComponent,
+    CharacterDetailPageComponent
   ],
   imports: [
     BrowserModule,
