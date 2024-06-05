@@ -1,0 +1,5 @@
+<div class="container">
+    <input type="text" class="form-control mb-3" placeholder="Search..." (input)="onSearch($event)">
+    <app-character-list [characters]="characters" (selectCharacter)="onCharacterSelect($event)"></app-character-list>
+    <button (click)="onScroll()">Load More</button>
+</div>
