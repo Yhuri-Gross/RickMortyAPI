@@ -1,5 +1,13 @@
-<div class="container">
-    <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search" (input)="onSearch($event)">
+<div class="bg-color">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand">Lista de Personagens</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"
+                    (input)="onSearch($event)">
+            </form>
+        </div>
+    </nav>
     <app-character-list [characters]="characters" (selectCharacter)="onCharacterSelect($event)"></app-character-list>
     <button type="button" class="btn btn-primary" (click)="onScroll()">Carregar mais</button>
 </div>

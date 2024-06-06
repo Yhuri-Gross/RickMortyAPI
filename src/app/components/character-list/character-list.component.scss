@@ -17,6 +17,8 @@
   .card {
     cursor: pointer;
     transition: transform 0.2s;
+    background-color: rgba(29, 26, 26, 0.76);
+    color: chartreuse;
   }
 
   .card-body{
