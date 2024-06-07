@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from 'src/app/models/character.model';
 import { RickMortyService } from 'src/app/services/rick-morty.service';
 
 @Component({
@@ -21,13 +20,13 @@ export class CharacterListPageComponent implements OnInit {
   loadCharacters() {
     if (this.query) {
       this.rickMortyService.searchCharacters(this.query, this.page).subscribe(data => {
-        console.log('API Response:', data);  // Adicione isso para verificar a estrutura da resposta
+        console.log('API Response:', data);  
 
         this.characters = [...this.characters, ...data.results];
       });
     } else {
       this.rickMortyService.getCharacters(this.page).subscribe(data => {
-        console.log('API Response:', data);  // Adicione isso para verificar a estrutura da resposta
+        console.log('API Response:', data);  
 
         this.characters = [...this.characters, ...data.results];
       });
@@ -37,10 +36,6 @@ export class CharacterListPageComponent implements OnInit {
   onScroll() {
     this.page++;
     this.loadCharacters();
-  }
-
-  onCharacterSelect(id: number) {
-    // Navegar para a página de detalhes
   }
 
   onSearch(event: Event) {
