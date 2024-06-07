@@ -9,6 +9,8 @@ import { CharacterListPageComponent } from './pages/character-list-page/characte
 import { HttpClientModule } from '@angular/common/http';
 import { CharacterDetailComponent } from './components/character-detail/character-detail.component';
 import { CharacterDetailPageComponent } from './pages/character-detail-page/character-detail-page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { CharacterDetailPageComponent } from './pages/character-detail-page/char
     CharacterListComponent,
     CharacterListPageComponent,
     CharacterDetailComponent,
-    CharacterDetailPageComponent
+    CharacterDetailPageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

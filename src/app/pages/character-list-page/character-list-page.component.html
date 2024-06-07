@@ -1,13 +1,26 @@
 <div class="bg-color">
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">Lista de Personagens</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Pesquisar..." aria-label="Search"
-                    (input)="onSearch($event)">
-            </form>
-        </div>
-    </nav>
-    <app-character-list [characters]="characters" ></app-character-list>
+    <div class="container-bg">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <div class="search-div">
+                    <a class="navbar-brand">Lista de Personagens</a>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Pesquisar..." aria-label="Search"
+                            (input)="onSearch($event)">
+                    </form>
+                </div>
+                <div class="info-profile">
+                    <div class="user-info">
+                        <h2>Bem vindo(a)!</h2>
+                        <p>{{user}}</p>
+                    </div>
+                    <div class="logout">
+                        <button (click)="logout()" class="btn btn-primary">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <app-character-list [characters]="characters"></app-character-list>
     <button type="button" class="btn btn-primary" (click)="onScroll()">Carregar mais</button>
 </div>

@@ -1,11 +1,23 @@
 <div class="bg-color">
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">Detalhes do Personagem</a>
-        </div>
-    </nav>
+    <div class="container-bg">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <div class="search-div">
+                    <a class="navbar-brand">Detalhes do Personagem</a>
+                </div>
+                <div class="info-profile">
+                    <div class="user-info">
+                        <h2>Bem vindo(a)!</h2>
+                        <p>{{user}}</p>
+                    </div>
+                    <div class="logout">
+                        <button (click)="logout()" class="btn btn-primary">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
     <div class="container">
         <app-character-detail [character]="character"></app-character-detail>
     </div>
 </div>
-  

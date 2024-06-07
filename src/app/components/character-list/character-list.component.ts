@@ -19,6 +19,6 @@ export class CharacterListComponent implements OnInit {
   }
 
   onCharacterClick(id: number): void {
-    this.router.navigate(['/characters', id]);
+    this.router.navigate(['/character', id]);
   }
 }

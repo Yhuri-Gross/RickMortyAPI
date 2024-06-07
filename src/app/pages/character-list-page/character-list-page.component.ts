@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { RickMortyService } from 'src/app/services/rick-morty.service';
 
 @Component({
@@ -10,10 +12,16 @@ export class CharacterListPageComponent implements OnInit {
   characters: any[] = [];
   page: number = 1;
   query: string = '';
+  user: any;
 
-  constructor(private rickMortyService: RickMortyService) { }
+  constructor(
+    private rickMortyService: RickMortyService,
+    private authService: AuthService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.user = this.authService.getUser();
     this.loadCharacters();
   }
 
@@ -44,5 +52,10 @@ export class CharacterListPageComponent implements OnInit {
     this.page = 1;
     this.query = inputElement.value;
     this.loadCharacters();
+  }  
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 }

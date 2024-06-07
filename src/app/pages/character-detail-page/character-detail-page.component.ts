@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Character } from 'src/app/models/character.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { RickMortyService } from 'src/app/services/rick-morty.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { RickMortyService } from 'src/app/services/rick-morty.service';
 })
 export class CharacterDetailPageComponent implements OnInit {
   character: Character | undefined;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
-    private rickMortyService: RickMortyService
+    private rickMortyService: RickMortyService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -21,5 +25,11 @@ export class CharacterDetailPageComponent implements OnInit {
     this.rickMortyService.getCharacter(Number(id)).subscribe(data => {
       this.character = data;
     });
+    this.user = this.authService.getUser();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 }

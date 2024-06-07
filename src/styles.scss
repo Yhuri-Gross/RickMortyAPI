@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+*{
+    font-family: 'Permanent Marker';
+    background-color: rgb(49, 47, 47);
+    color: chartreuse;
+
+}
