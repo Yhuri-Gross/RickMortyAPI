@@ -22,6 +22,10 @@ npm start
 
 5. O aplicativo estará disponível em `http://localhost:4200/` por padrão. Você pode acessar este URL em seu navegador para visualizar o aplicativo.
 
+6. Para logar na aplicação utilize os seguintes dados:
+Username: Yhuri
+Password: 1234
+
 ## Funcionalidades
 
 O aplicativo possui as seguintes funcionalidades:
