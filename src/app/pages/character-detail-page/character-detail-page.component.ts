@@ -32,4 +32,8 @@ export class CharacterDetailPageComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['']);
   }
+
+  goBack() {
+    this.router.navigate(['characters']);
+  }
 }

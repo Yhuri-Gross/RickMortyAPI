@@ -19,7 +19,8 @@
 
 .user-info{
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: end;
 }
 
 .logout{
@@ -34,3 +35,10 @@
 .info-profile{
     padding: 10px;
 }
+
+.no-results {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: chartreuse;
+  }

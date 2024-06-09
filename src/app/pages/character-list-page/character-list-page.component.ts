@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { RickMortyService } from 'src/app/services/rick-morty.service';
@@ -13,6 +14,7 @@ export class CharacterListPageComponent implements OnInit {
   page: number = 1;
   query: string = '';
   user: any;
+  noResults: boolean = false;
 
   constructor(
     private rickMortyService: RickMortyService,
@@ -27,23 +29,42 @@ export class CharacterListPageComponent implements OnInit {
 
   loadCharacters() {
     if (this.query) {
-      this.rickMortyService.searchCharacters(this.query, this.page).subscribe(data => {
-        console.log('API Response:', data);  
-
-        this.characters = [...this.characters, ...data.results];
+      this.rickMortyService.searchCharacters(this.query, this.page).subscribe({
+        next: data => {
+          this.characters = [...this.characters, ...data.results];
+          this.noResults = this.characters.length === 0;
+        },
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.noResults = true;
+          }
+        }
       });
     } else {
-      this.rickMortyService.getCharacters(this.page).subscribe(data => {
-        console.log('API Response:', data);  
-
-        this.characters = [...this.characters, ...data.results];
+      this.rickMortyService.getCharacters(this.page).subscribe({
+        next: data => {
+          this.characters = [...this.characters, ...data.results];
+          this.noResults = this.characters.length === 0;
+        },
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 404) {
+            this.noResults = true;
+          }
+        }
       });
     }
   }
-
   onScroll() {
     this.page++;
     this.loadCharacters();
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+      this.onScroll();
+    }
   }
 
   onSearch(event: Event) {

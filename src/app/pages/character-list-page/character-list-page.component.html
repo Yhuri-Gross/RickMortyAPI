@@ -22,5 +22,7 @@
         </nav>
     </div>
     <app-character-list [characters]="characters"></app-character-list>
-    <button type="button" class="btn btn-primary" (click)="onScroll()">Carregar mais</button>
+    <div *ngIf="noResults" class="no-results">
+        Nenhum personagem encontrado.
+    </div>
 </div>

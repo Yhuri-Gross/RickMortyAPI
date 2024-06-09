@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .bg-color{
@@ -28,7 +29,8 @@
 
 .user-info{
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: end;
 }
 
 .logout{
@@ -42,4 +44,8 @@
 
 .info-profile{
     padding: 10px;
+}
+
+.btn-back{
+    margin-top: 20px;
 }
